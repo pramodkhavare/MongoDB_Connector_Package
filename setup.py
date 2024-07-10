@@ -1,18 +1,17 @@
 from setuptools import setup, find_packages
 from typing import List
 
-PROJECT_NAME = "Finance_complaints"
+PROJECT_NAME = "MongoDB-Connect"
 VERSION = "0.0.1"
-DESCRIPTION = "This is our machine learning project in modular coding which we can use to predict financial complaints"
+DESCRIPTION = "This is python package which will help you to connect with database"
 AUTHOR_NAME = "Pramod Khavare"
 AUTHOR_EMIL = "pramodkhavare2000@gmail.com"
+# REPO_NAME = "github repo name"
 
-REQUIREMENTS_FILE_NAME = "requirements.txt"
+REQUIREMENTS_FILE_NAME = "./requirements_dev.txt"
 
 HYPHEN_E_DOT = "-e ."
-# Requriments.txt file open
-# read
-# \n ""
+
 def get_requirements_list()->List[str]:
     with open(REQUIREMENTS_FILE_NAME) as requriment_file:
         requriment_list = requriment_file.readlines()
@@ -22,12 +21,21 @@ def get_requirements_list()->List[str]:
             requriment_list.remove(HYPHEN_E_DOT)
 
         return requriment_list
+    
+with open('README.md' ,'r' ,encoding='utf-8') as file:
+    long_description = file.read()
+
+
+LONG_DESCRIPTION = long_description
+
 
 setup(name=PROJECT_NAME,
       version=VERSION,
       description=DESCRIPTION,
+      long_description= LONG_DESCRIPTION ,
       author=AUTHOR_NAME,
       author_email=AUTHOR_EMIL,
       packages=find_packages(),
-      install_requries = get_requirements_list()
+      install_requries = get_requirements_list() ,
+      url ='github_url'
      )
